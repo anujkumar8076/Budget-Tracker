@@ -1,0 +1,60 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Budget Tracker </title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="app-container">
+      <div class="input-container">
+        <div class="header">
+          <h1>💰 Budget Tracker </h1>
+        </div>
+
+        <div id="balance">Balance: $0.00</div>
+
+        <form id="transactionForm">
+          <input
+            type="text"
+            id="description"
+            placeholder="Transaction Description"
+            required
+          />
+
+          <input
+            type="number"
+            id="amount"
+            placeholder="Amount"
+            step="0.01"
+            required
+          />
+
+          <select id="type" required>
+            <option value="income">💸 Income</option>
+            <option value="expense">💳 Expense</option>
+          </select>
+
+          <button type="submit">Add Transaction</button>
+        </form>
+      </div>
+
+      <div class="transactions-container">
+        <h2>Transactions</h2>
+
+        <div id="transactionList">
+          <div class="transaction income">
+            <span>Freelance Work</span>
+            <span class="transaction-amount-container"
+              >$500 <button class="delete-btn">Delete</button></span
+            >
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="main.js"></script>
+  </body>
+</html>
