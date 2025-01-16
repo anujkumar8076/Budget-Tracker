@@ -25,13 +25,14 @@ body {
   max-width: 1200px;
   margin: 2rem auto;
   background: #2653a1e3;
+  border-radius: 11px;
 }
 
 .input-container {
   flex: 1;
   background: var(--card-background);
-  background: rgb(238,174,202);
-background: radial-gradient(circle, rgba(238,174,202,1) 0%, rgba(148,187,233,1) 100%);
+  background: red;
+background: radial-gradient(circle, red, 0%, rgba(148,187,233,1) 100%);
   border-radius: 12px;
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
   padding: 2rem;
@@ -117,15 +118,16 @@ button:hover {
 }
 
 .transaction.income {
-  background-color: rgba(46, 204, 113, 0.1);
+  background-color: rgb(114, 183, 133);
 }
 
 .transaction.expense {
-  background-color: rgba(231, 76, 60, 0.1);
+  background-color: rgb(220, 121, 121);
 }
 
 .transaction:hover {
-  background-color: rgba(0, 0, 0, 0.05);
+  background-color: rgba(0, 0, 0, 0.1);
+  border:solid  #2c3e50;
 }
 
 .transaction-amount-container {
@@ -151,6 +153,7 @@ button:hover {
   .app-container {
     flex-direction: column;
     padding: 1rem;
+    
   }
 
   #balance {
