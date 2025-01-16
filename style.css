@@ -1,60 +1,162 @@
+:root {
+  --primary-color: #4a90e2;
+  --secondary-color: #2ecc71;
+  --danger-color: #e74c3c;
+  --card-background: #ffffff;
+}
 
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Budget Tracker </title>
-    <link rel="stylesheet" href="./style.css" />
-  </head>
-  <body>
-    <div class="app-container">
-      <div class="input-container">
-        <div class="header">
-          <h1>💰 Budget Tracker </h1>
-        </div>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
-        <div id="balance">Balance: $0.00</div>
+body {
+  font-family: "Inter", sans-serif;
+  background-color: rgb(13, 152, 152);
+  color: #2c3e50;
+  line-height: 1.6;
+}
 
-        <form id="transactionForm">
-          <input
-            type="text"
-            id="description"
-            placeholder="Transaction Description"
-            required
-          />
+.app-container {
+  display: flex;
+  gap: 2rem;
+  width: 100%;
+  max-width: 1200px;
+  margin: 2rem auto;
+  background: #2653a1e3;
+  border-radius: 11px;
+}
 
-          <input
-            type="number"
-            id="amount"
-            placeholder="Amount"
-            step="0.01"
-            required
-          />
+.input-container {
+  flex: 1;
+  background: var(--card-background);
+  background: red;
+background: radial-gradient(circle, red, 0%, rgba(148,187,233,1) 100%);
+  border-radius: 12px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+  padding: 2rem;
+  height: fit-content;
+}
 
-          <select id="type" required>
-            <option value="income">💸 Income</option>
-            <option value="expense">💳 Expense</option>
-          </select>
+.transactions-container {
+  flex: 1;
+  background: rgb(238,174,202);
+  background: radial-gradient(circle, rgba(238,174,202,1) 0%, rgba(148,187,233,1) 100%);  border-radius: 12px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+  padding: 2rem;
+  max-height: 560px;
+  overflow-y: auto;
+}
 
-          <button type="submit">Add Transaction</button>
-        </form>
-      </div>
+.header {
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
 
-      <div class="transactions-container">
-        <h2>Transactions</h2>
+.header h1 {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--primary-color);
+}
 
-        <div id="transactionList">
-          <div class="transaction income">
-            <span>Freelance Work</span>
-            <span class="transaction-amount-container"
-              >$500 <button class="delete-btn">Delete</button></span
-            >
-          </div>
-        </div>
-      </div>
-    </div>
+#balance {
+  text-align: center;
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin: 1.5rem 0;
+}
 
-    <script src="main.js"></script>
-  </body>
-</html>
+#transactionForm {
+  display: grid;
+  gap: 1rem;
+}
+
+input,
+select,
+button {
+  width: 100%;
+  padding: 0.75rem;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  font-size: 1rem;
+}
+
+input:focus,
+select:focus {
+  outline: none;
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 3px rgba(74, 144, 226, 0.1);
+}
+
+button {
+  background-color: var(--primary-color);
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  font-weight: 600;
+  transition: all 300ms ease;
+}
+
+button:hover {
+  background-color: #3a7bd5;
+  transform: translateY(-2px);
+}
+
+#transactionList {
+  margin-top: 1.5rem;
+}
+
+.transaction {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  border-radius: 8px;
+  margin-bottom: 0.5rem;
+  transition: all 300ms ease;
+}
+
+.transaction.income {
+  background-color: rgb(114, 183, 133);
+}
+
+.transaction.expense {
+  background-color: rgb(220, 121, 121);
+}
+
+.transaction:hover {
+  background-color: rgba(0, 0, 0, 0.1);
+  border:solid  #2c3e50;
+}
+
+.transaction-amount-container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+.delete-btn {
+  background-color: var(--danger-color);
+  padding: 8px;
+  font-size: 0.8rem;
+  border-radius: 4px;
+  transition: all 300ms ease;
+}
+
+.delete-btn:hover {
+  background-color: #c0392b;
+  transform: translateY(0);
+}
+
+@media (max-width: 768px) {
+  .app-container {
+    flex-direction: column;
+    padding: 1rem;
+    
+  }
+
+  #balance {
+    font-size: 2rem;
+  }
+}
